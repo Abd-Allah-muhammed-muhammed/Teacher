@@ -15,7 +15,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="@dimen/spacing_mlarge"
         android:src="@drawable/logo_dark"
-         />
+        android:contentDescription="@string/logo" />
 
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_marginStart="@dimen/dimen_24"
         android:layout_marginEnd="@dimen/dimen_24"
         android:orientation="vertical">
-        
+
         <EditText
             android:drawableStart="@drawable/ic_person"
             android:drawablePadding="@dimen/_12"
@@ -55,7 +55,8 @@
             android:textColor="@color/colorPrimaryDark"
             android:paddingStart="@dimen/spacing_mlarge"
             android:paddingRight="@dimen/spacing_mlarge"
-            android:drawableLeft="@drawable/ic_person" />
+            android:drawableLeft="@drawable/ic_person"
+            android:autofillHints="@string/full_name" />
 
 
         <EditText
@@ -72,7 +73,8 @@
             android:textColorHint="@color/colorPrimaryDark"
             android:textColor="@color/colorPrimaryDark"
             android:paddingStart="@dimen/spacing_mlarge"
-            android:drawableLeft="@drawable/ic_phone" />
+            android:drawableLeft="@drawable/ic_phone"
+            android:autofillHints="@string/phone" />
 
 
     </LinearLayout>
