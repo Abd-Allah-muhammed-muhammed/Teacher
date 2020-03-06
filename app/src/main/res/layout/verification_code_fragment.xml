@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent"
+        >
+
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_dark"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_12"/>
+
+
+        <LinearLayout
+
+            android:visibility="visible"
+            android:layout_centerInParent="true"
+            android:id="@+id/layout_chick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <EditText
+
+                android:drawablePadding="@dimen/_12"
+                android:inputType="number"
+                android:drawableStart="@drawable/ic_sms"
+                android:fontFamily="sans-serif-smallcaps"
+                android:id="@+id/verification_code_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_50"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:layout_marginEnd="@dimen/_50"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:hint="@string/_6_widget_code"
+                android:drawableLeft="@drawable/ic_sms" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:fontFamily="sans-serif-smallcaps"
+                android:id="@+id/btn_check"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50"
+                android:layout_marginStart="@dimen/_100"
+                android:layout_marginTop="@dimen/dimen_24"
+                android:layout_marginEnd="@dimen/_100"
+                android:text="@string/check_the_code"
+                android:backgroundTint="@color/colorAccent"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:visibility="gone"
+            android:id="@+id/layout_finish"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginEnd="@dimen/dimen_24"
+                android:layout_marginStart="@dimen/dimen_24"
+                android:background="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.3"
+                    android:textSize="@dimen/_8s"
+                    android:text="CHOOSE YOUR COUNTRY"
+                    android:paddingStart="@dimen/_12"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/_12" />
+
+
+                <Spinner
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="sans-serif-smallcaps"
+
+                    android:id="@+id/sp_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="text"
+                    android:textColorHint="@color/colorPrimaryDark"
+
+                    />
+
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.3"
+                    android:textSize="@dimen/_8s"
+
+                    android:text="CHOOSE YOUR CITY"
+                    android:paddingStart="@dimen/_12"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/_12" />
+
+                <Spinner
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="sans-serif-smallcaps"
+
+                    android:id="@+id/ap_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="text"
+                    android:textColorHint="@color/colorPrimaryDark"
+
+                    />
+            </LinearLayout>
+
+
+            <EditText
+                android:drawablePadding="@dimen/_12"
+                android:drawableStart="@drawable/ic_lock"
+                android:paddingStart="@dimen/spacing_mlarge"
+                android:paddingEnd="@dimen/spacing_mlarge"
+                android:fontFamily="sans-serif-smallcaps"
+                android:hint="@string/password"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/ID_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_24"
+                android:layout_marginEnd="@dimen/dimen_24"
+                android:layout_marginStart="@dimen/dimen_24"
+                android:inputType="textPassword"
+                android:drawableLeft="@drawable/ic_lock" />
+
+            <EditText
+                android:drawablePadding="@dimen/_12"
+                android:drawableStart="@drawable/ic_lock"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:layout_marginEnd="@dimen/dimen_24"
+                android:layout_marginStart="@dimen/dimen_24"
+                android:paddingStart="@dimen/spacing_mlarge"
+                android:id="@+id/ID_RePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_24"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:paddingEnd="@dimen/spacing_mlarge"
+                android:drawableLeft="@drawable/ic_lock" />
+
+
+            <Button
+                android:fontFamily="sans-serif-smallcaps"
+                android:id="@+id/finish_sing_up"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50"
+                android:text="@string/sign_up"
+                android:layout_marginStart="@dimen/_100"
+                android:layout_marginTop="@dimen/dimen_24"
+                android:layout_marginEnd="@dimen/_100"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorAccent"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/prog_vrifi"/>
+
+    </RelativeLayout>
+
+
+</layout>

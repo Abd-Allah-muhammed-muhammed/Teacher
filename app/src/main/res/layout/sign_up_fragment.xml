@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_marginTop="@dimen/_38dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/spacing_mlarge"
+        android:src="@drawable/logo_dark"
+         />
+
+
+    <TextView
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="@dimen/_24s"
+        android:id="@+id/text_into"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="@dimen/_50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_acc"
+        android:layout_below="@+id/logo"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/dimen_24"
+        android:layout_marginEnd="@dimen/dimen_24"
+        android:orientation="vertical">
+        
+        <EditText
+            android:drawableStart="@drawable/ic_person"
+            android:drawablePadding="@dimen/_12"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/ID_Name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38dp"
+            android:layout_marginTop="@dimen/_38dp"
+            android:paddingEnd="@dimen/spacing_mlarge"
+            android:hint="@string/full_name"
+            android:layout_gravity="center"
+            android:inputType="text"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimaryDark"
+            android:paddingStart="@dimen/spacing_mlarge"
+            android:paddingRight="@dimen/spacing_mlarge"
+            android:drawableLeft="@drawable/ic_person" />
+
+
+        <EditText
+            android:drawablePadding="@dimen/_12"
+            android:drawableStart="@drawable/ic_phone"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingEnd="@dimen/spacing_mlarge"
+            android:id="@+id/ID_Phone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38dp"
+            android:layout_marginTop="@dimen/dimen_24"
+            android:inputType="phone"
+            android:hint="@string/phone"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimaryDark"
+            android:paddingStart="@dimen/spacing_mlarge"
+            android:drawableLeft="@drawable/ic_phone" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_marginBottom="@dimen/_20"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.button.MaterialButton
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/btn_Register"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_50"
+            android:backgroundTint="@color/colorAccent"
+            android:layout_marginEnd="@dimen/_50"
+            android:text="@string/complete"
+            android:textStyle="bold"
+            tools:targetApi="lollipop" />
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/prog_sign_up"/>
+</RelativeLayout>

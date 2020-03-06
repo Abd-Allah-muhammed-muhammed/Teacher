@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="_30">30dp</dimen>
+    <dimen name="_20">20dp</dimen>
+    <dimen name="_12">12dp</dimen>
+    <dimen name="_10">10dp</dimen>
+    <dimen name="_25">25dp</dimen>
+    <dimen name="_18s">18sp</dimen>
+    <dimen name="_24s">24sp</dimen>
+    <dimen name="_38dp">38dp</dimen>
+    <dimen name="spacing_mlarge">8dp</dimen>
+    <dimen name="dimen_24">24dp</dimen>
+    <dimen name="_50">50dp</dimen>
+    <dimen name="_100">100dp</dimen>
+    <dimen name="_60">60dp</dimen>
+    <dimen name="_80">80dp</dimen>
+    <dimen name="_8s">8sp</dimen>
+    <dimen name="_250">250dp</dimen>
+    <dimen name="_200">200dp</dimen>
+</resources>

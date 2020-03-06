@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "834459994086",
+    "firebase_url": "https://deross-8ecc6.firebaseio.com",
+    "project_id": "deross-8ecc6",
+    "storage_bucket": "deross-8ecc6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834459994086:android:2af76d51ccc554229e3827",
+        "android_client_info": {
+          "package_name": "com.example.deross"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834459994086-jctrstq3sebh9selkj9esn0i2gqdqmps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD2_2zCLG6bYZLTr7zeWeItiBdL-Qvzao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834459994086-jctrstq3sebh9selkj9esn0i2gqdqmps.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
