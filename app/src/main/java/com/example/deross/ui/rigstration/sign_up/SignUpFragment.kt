@@ -1,15 +1,15 @@
 package com.example.deross.ui.rigstration.sign_up
 
-import android.content.ComponentCallbacks
-import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.deross.R
+import com.example.deross.databinding.SignUpFragmentBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.sign_up_fragment.*
-import java.util.concurrent.TimeUnit
 
 class SignUpFragment : Fragment() {
 
@@ -28,6 +27,7 @@ class SignUpFragment : Fragment() {
 
     private lateinit var viewModel: SignUpViewModel
     private lateinit var auth: FirebaseAuth
+    private var binding :SignUpFragmentBinding ? = null
 
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
     private var storedVerificationId: String? = ""
@@ -39,19 +39,32 @@ class SignUpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+binding = DataBindingUtil.inflate(inflater,R.layout.sign_up_fragment,container,false)
 
-        auth = FirebaseAuth.getInstance()
-        return inflater.inflate(R.layout.sign_up_fragment, container, false)
+
+        return binding?.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(SignUpViewModel::class.java)
-        btn_Register.setOnClickListener(View.OnClickListener {
+        auth = FirebaseAuth.getInstance()
+       binding?.btnRegister?.setOnClickListener(View.OnClickListener {
 
-            prog_sign_up.visibility = View.VISIBLE
-            activity?.let { it1 -> viewModel.startPhoneNumberVerification(ID_Phone.text.toString().trimEnd(),callbacks, it1)
+            if (TextUtils.isEmpty(binding?.IDName?.text)){
+
+                Snackbar.make(activity!!.findViewById(android.R.id.content), "Please Enter Your Name",
+                    Snackbar.LENGTH_LONG).show()
+            }else if (TextUtils.isEmpty(binding?.IDPhone?.text)){
+
+                Snackbar.make(activity!!.findViewById(android.R.id.content), "Please Enter Your Phone",
+                    Snackbar.LENGTH_LONG).show()
+            }else {
+                binding?.progSignUp?.visibility = View.VISIBLE
+                activity?.let { it1 -> viewModel.startPhoneNumberVerification(binding?.IDPhone?.text.toString().trimEnd(),callbacks, it1)
+                }
             }
+
 
 
 
@@ -66,18 +79,18 @@ class SignUpFragment : Fragment() {
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
-                prog_sign_up.visibility = View.GONE
+                binding?.progSignUp?.visibility = View.GONE
 
 
                 if (e is FirebaseAuthInvalidCredentialsException) {
 
-                    Snackbar.make(activity!!.findViewById(android.R.id.content), "Quota exceeded.${e.message}",
+                    Snackbar.make(activity!!.findViewById(android.R.id.content), "Quota exceeded.",
                         Snackbar.LENGTH_LONG).show()
 
 
                 } else if (e is FirebaseTooManyRequestsException) {
 
-                    Snackbar.make(activity!!.findViewById(android.R.id.content), "Quota exceeded.${e.message}",
+                    Snackbar.make(activity!!.findViewById(android.R.id.content), "Quota exceeded.",
                         Snackbar.LENGTH_LONG).show()
 
                 }
@@ -89,23 +102,24 @@ class SignUpFragment : Fragment() {
                 token: PhoneAuthProvider.ForceResendingToken
             ) {
 
-                prog_sign_up.visibility = View.GONE
+                binding?.progSignUp?.visibility = View.GONE
 
                 storedVerificationId = verificationId
 
-                Snackbar.make(activity!!.findViewById(android.R.id.content), verificationId,
-                    Snackbar.LENGTH_SHORT).show()
+
 
                 val bundle  = Bundle()
                 bundle.putString("code",verificationId)
-                bundle.putString("name",ID_Name.text.toString())
+                bundle.putString("name",binding?.IDName?.text.toString())
+                bundle.putString("number",binding?.IDPhone?.text.toString())
                 var fragment = VerificationCodeFragment()
 
                 fragment.arguments = bundle
 //
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.container, fragment)
-                    ?.commitNow()
+                    ?.addToBackStack("verif")
+                    ?.commit()
 
 
             }
@@ -115,6 +129,9 @@ class SignUpFragment : Fragment() {
 
 
     }
+
+
+
 
 
 

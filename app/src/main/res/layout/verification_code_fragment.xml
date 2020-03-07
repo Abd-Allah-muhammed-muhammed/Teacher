@@ -3,6 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     >
+
+    <data>
+
+        <variable
+            name="verifi"
+            type="com.example.deross.ui.rigstration.sign_up.VerificationCodeViewModel" />
+    </data>
     <RelativeLayout
 
         android:layout_width="match_parent"
@@ -17,7 +24,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/logo_dark"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_12"/>
+            android:layout_marginTop="@dimen/dimen_24"/>
 
 
         <LinearLayout
@@ -78,14 +85,13 @@
                 android:layout_marginStart="@dimen/dimen_24"
                 android:background="@color/colorAccent"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100">
+                android:layout_height="@dimen/_150">
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.3"
-                    android:textSize="@dimen/_8s"
+                    android:layout_weight="1"
                     android:text="CHOOSE YOUR COUNTRY"
                     android:paddingStart="@dimen/_12"
                     android:gravity="start|center_vertical"
@@ -101,11 +107,13 @@
                     android:id="@+id/sp_country"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.5"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/white"
+                    android:paddingStart="@dimen/_12"
+                    android:paddingEnd="@dimen/_12"
                     android:inputType="text"
-                    android:textColorHint="@color/colorPrimaryDark"
+
 
                     />
 
@@ -114,8 +122,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.3"
-                    android:textSize="@dimen/_8s"
+                    android:layout_weight="1"
 
                     android:text="CHOOSE YOUR CITY"
                     android:paddingStart="@dimen/_12"
@@ -127,21 +134,23 @@
                 <Spinner
                     android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-smallcaps"
-
+                    android:textColor="@color/white"
+                    android:paddingStart="@dimen/_12"
+                    android:paddingEnd="@dimen/_12"
                     android:id="@+id/ap_city"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.5"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/colorPrimaryDark"
                     android:inputType="text"
-                    android:textColorHint="@color/colorPrimaryDark"
+
 
                     />
             </LinearLayout>
 
 
             <EditText
+                android:onTextChanged="@{verifi.passwordChanging}"
                 android:drawablePadding="@dimen/_12"
                 android:drawableStart="@drawable/ic_lock"
                 android:paddingStart="@dimen/spacing_mlarge"
@@ -160,6 +169,8 @@
                 android:drawableLeft="@drawable/ic_lock" />
 
             <EditText
+                android:onTextChanged="@{verifi.rePasswordChanging}"
+
                 android:drawablePadding="@dimen/_12"
                 android:drawableStart="@drawable/ic_lock"
                 android:fontFamily="sans-serif-smallcaps"
@@ -179,6 +190,7 @@
 
 
             <Button
+                android:onClick="@{(view) -> verifi.sigUp(view)}"
                 android:fontFamily="sans-serif-smallcaps"
                 android:id="@+id/finish_sing_up"
                 android:layout_width="match_parent"

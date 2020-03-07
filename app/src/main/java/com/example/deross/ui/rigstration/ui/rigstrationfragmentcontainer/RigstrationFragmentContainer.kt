@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import com.example.deross.R
 import com.example.deross.databinding.RigstrationFragmentContainerFragmentBinding
 import com.example.deross.ui.rigstration.sign_up.SignUpFragment
-import kotlinx.android.synthetic.main.rigstration_fragment_container_fragment.*
 
 class RigstrationFragmentContainer : Fragment() {
 
@@ -37,12 +36,14 @@ class RigstrationFragmentContainer : Fragment() {
         viewModel =
             ViewModelProviders.of(this).get(RigstrationFragmentContainerViewModel::class.java)
 
+        binding.login = viewModel
 
         binding.createAccount.setOnClickListener(View.OnClickListener {
 
             activity?.supportFragmentManager?.beginTransaction()
     ?.replace(R.id.container, SignUpFragment.newInstance())
-    ?.commitNow()
+                ?.addToBackStack("sign_up")
+    ?.commit()
         })
 
 
@@ -50,5 +51,4 @@ class RigstrationFragmentContainer : Fragment() {
     }
 
 
-//
 }
